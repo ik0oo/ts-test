@@ -3,12 +3,16 @@
   "version": "0.0.1",
   "description": "this project for testin typescript/karma/mocha/react/redux stack",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ik0oo/ts-test.git"
+  },
   "scripts": {
     "start": "webpack-dev-server --content-base ./",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "ik0oo <kichigindv@gmail.com> (https://github.com/ik0oo/)",
+  "license": "UNLICENSED",
   "dependencies": {
     "@types/react": "^15.0.6",
     "@types/react-dom": "^0.14.22",
