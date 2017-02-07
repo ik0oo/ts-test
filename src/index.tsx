@@ -7,7 +7,7 @@ interface Props {
 
 interface State {}
 
-class HelloWorld extends React.Component<Props, State> {
+export default class HelloWorld extends React.Component<Props, State> {
     constructor (public props: Props) {
         super(props);
     }
@@ -18,10 +18,3 @@ class HelloWorld extends React.Component<Props, State> {
         );
     }
 }
-
-export default HelloWorld;
-
-ReactDOM.render(
-    <HelloWorld message="3333"/>,
-    document.getElementById('root')
-);
