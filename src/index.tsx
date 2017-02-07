@@ -19,6 +19,8 @@ class HelloWorld extends React.Component<Props, State> {
     }
 }
 
+export default HelloWorld;
+
 ReactDOM.render(
     <HelloWorld message="3333"/>,
     document.getElementById('root')

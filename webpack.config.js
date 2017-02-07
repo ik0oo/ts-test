@@ -4,7 +4,7 @@
 const { CheckerPlugin } = require('awesome-typescript-loader')
 const path = require('path');
 
-module.exports = {
+const config = {
 
     entry: "./src/index.tsx",
     output: {
@@ -26,7 +26,8 @@ module.exports = {
         loaders: [
             {
                 test: /\.tsx?$/,
-                loader: 'awesome-typescript-loader'
+                loader: 'awesome-typescript-loader',
+                exclude: /node_modules/
             }
         ]
     },
@@ -34,3 +35,5 @@ module.exports = {
         new CheckerPlugin()
     ]
 };
+
+module.exports = config;
