@@ -3,10 +3,11 @@
 // after https://github.com/webpack/webpack/issues/3460 will be resolved.
 const { CheckerPlugin } = require('awesome-typescript-loader');
 const path = require('path');
+const combineLoaders = require('webpack-combine-loaders');
 
 const config = {
 
-    entry: "./src/index.tsx",
+    entry: "./src/bootstrap.tsx",
     output: {
         filename: "bundle.js",
         publicPath: "/dist/",
@@ -28,6 +29,20 @@ const config = {
                 test: /\.tsx?$/,
                 loader: 'awesome-typescript-loader',
                 exclude: /node_modules/
+            }, {
+
+                test: /\.css$/,
+                loader: combineLoaders([
+                    {
+                        loader: 'style-loader'
+                    }, {
+                        loader: 'css-loader',
+                        query: {
+                            modules: true,
+                            localIdentName: '[name]__[local]___[hash:base64:5]'
+                        }
+                    }
+                ])
             }
         ]
     },

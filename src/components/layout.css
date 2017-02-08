@@ -1,0 +1,5 @@
+.layout {
+    display: flex;
+    flex-flow: row nowrap;
+    min-height: 100vh;
+}

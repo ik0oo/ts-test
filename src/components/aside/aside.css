@@ -1,0 +1,8 @@
+.aside {
+    width: 25%;
+    background-color: #39435c;
+}
+
+.aside__user-list {
+    margin-bottom: 15px;
+}
