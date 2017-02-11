@@ -1,5 +1,5 @@
 import * as userInterface from '../components/aside/user/user.interface';
-import * as actions from "../actions/index";
+import * as userActions from "../actions/user.actions";
 
 declare interface ObjectConstructor {
     assign(...objects: Object[]): Object;
@@ -13,16 +13,21 @@ const initialState = {
     users: <userInterface.Props[]> []
 };
 
-const userapp = (state: State = initialState, action: actions.ActionInterface) => {
+const userapp = (state: State = initialState, action: userActions.ActionInterface) => {
     switch (action.type) {
         case 'ADD_USER':
             return (<any>Object).assign({}, state, {
-                users: actions.addUser(state.users, action)
+                users: userActions.addUser(state.users, action)
+            });
+
+        case 'SELECT_USER':
+            return (<any>Object).assign({}, state, {
+                users: userActions.selectUser(state.users, action)
             });
 
         case 'REMOVE_USER':
             return (<any>Object).assign({}, state, {
-                users: actions.removeUser(state.users, action)
+                users: userActions.removeUser(state.users, action)
             });
 
         default:

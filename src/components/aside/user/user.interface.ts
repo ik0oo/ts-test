@@ -1,7 +1,10 @@
 export interface Props {
-    id: number,
-    name: string,
-    selected: boolean
+    id?: number,
+    name?: string,
+    selected?: boolean,
+    onSelect?: () => void
 }
 
-export interface State {}
+export interface State {
+    name: string
+}

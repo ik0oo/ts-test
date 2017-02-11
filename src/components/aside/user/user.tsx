@@ -16,7 +16,7 @@ export default class User extends React.Component<userInterface.Props, userInter
 
     render () {
         return (
-            <div className="user">
+            <div className={`user${this.props.selected ? ' user--selected' : ''}`} onClick={this.props.onSelect}>
                 <figure>
                     <img className="user__profile-image" src={imageUrl} alt="user profile image"/>
                 </figure>

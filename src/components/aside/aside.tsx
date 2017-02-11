@@ -22,6 +22,12 @@ export default class Aside extends React.Component<asideInterface.Props, asideIn
                 <div className="aside__user-list">
                     {
                         store.getState().users.map((item: userInterface.Props) => <User
+                            onSelect={
+                                () => store.dispatch({
+                                    type: 'SELECT_USER',
+                                    id: item.id
+                                })
+                            }
                             name={item.name}
                             selected={item.selected}
                             id={item.id}
