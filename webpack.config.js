@@ -38,7 +38,7 @@ const config = {
                     }, {
                         loader: 'css-loader',
                         query: {
-                            modules: true,
+                            modules: false,
                             localIdentName: '[name]__[local]___[hash:base64:5]'
                         }
                     }
