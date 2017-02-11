@@ -9,7 +9,7 @@ export default function Layout () {
         <section className="layout">
             <Aside
                 addUser={() => store.dispatch({
-                    type: 'ADD_USER', text: 'some text' + Math.random()
+                    type: 'ADD_USER', name: 'some text' + Math.random()
                 })}
             />
             <div className="main"></div>

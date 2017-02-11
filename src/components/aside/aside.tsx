@@ -6,17 +6,13 @@ import store from '../../stores';
 //styles
 import './aside.css';
 
-interface Props {
-    addUser: () => void
-}
-interface State {}
+//interfaces
+import * as asideInterface from './aside.interface';
+import * as userInterface from './user/user.interface';
 
-interface User {
-    text: string
-}
 
-export default class Aside extends React.Component<Props, State> {
-    constructor (public props: Props) {
+export default class Aside extends React.Component<asideInterface.Props, asideInterface.State> {
+    constructor (public props: asideInterface.Props) {
         super(props);
     }
 
@@ -25,7 +21,12 @@ export default class Aside extends React.Component<Props, State> {
             <aside className="aside">
                 <div className="aside__user-list">
                     {
-                        store.getState().users.map((item: User) => <User key={item.text}/>)
+                        store.getState().users.map((item: userInterface.Props) => <User
+                            name={item.name}
+                            selected={item.selected}
+                            id={item.id}
+                            key={item.id}/>
+                        )
                     }
                 </div>
                 <button onClick={this.props.addUser}>Add user</button>

@@ -1,22 +1,18 @@
-interface Users {
-    id: number,
-    text: string,
-    selected: boolean
-}
+import * as userInterface from '../components/aside/user/user.interface';
 
-interface Action {
+export interface ActionInterface {
     type: string,
-    text: string,
+    name: string,
     id: number
 }
 
-export const addUser = (users: Users[], action: Action) => [
+export const addUser = (users: userInterface.Props[], action: ActionInterface) => [
     ...users,
     {
         id: users.length,
-        text: action.text,
+        name: action.name,
         selected: false
     }
 ];
 
-export const removeUser = (users: Users[], action: Action) => users.filter(user => user.id !== action.id);
+export const removeUser = (users: userInterface.Props[], action: ActionInterface) => users.filter(user => user.id !== action.id);
