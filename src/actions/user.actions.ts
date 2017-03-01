@@ -1,8 +1,7 @@
 import * as userInterface from '../components/aside/user/user.interface';
 
-export interface ActionInterface {
+export interface ActionInterface extends userInterface.Props {
     type: string,
-    name: string,
     id: number,
 }
 
@@ -11,6 +10,8 @@ export const addUser = (users: userInterface.Props[], action: ActionInterface) =
     {
         id: users.length,
         name: action.name,
+        email: action.email,
+        money: action.money,
         selected: false
     }
 ];

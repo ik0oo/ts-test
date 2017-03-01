@@ -1,8 +1,12 @@
 import * as React from 'react';
 import Aside from './aside/aside';
 import store from '../stores';
-import AddUserForm from './forms/add-user-form/add-user-form';
+import UserDetails from './forms/user-details';
 import './layout.css';
+
+const createUser = user => store.dispatch(
+    Object.assign({type: 'ADD_USER'}, user)
+);
 
 export default function Layout () {
     return (
@@ -13,7 +17,9 @@ export default function Layout () {
                 })}
             />
             <div className="main">
-                <AddUserForm />
+                <UserDetails
+                    createUser={createUser}
+                />
             </div>
         </section>
     );

@@ -21,6 +21,7 @@ const userapp = (state: State = initialState, action: userActions.ActionInterfac
             });
 
         case 'SELECT_USER':
+            console.log(userActions.selectUser(state.users, action));
             return (<any>Object).assign({}, state, {
                 users: userActions.selectUser(state.users, action)
             });

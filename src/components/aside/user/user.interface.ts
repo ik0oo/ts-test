@@ -1,10 +1,22 @@
+export interface Money {
+    rur: number,
+    usd: number,
+    eur: number
+}
+
 export interface Props {
     id?: number,
     name?: string,
+    email?: string,
     selected?: boolean,
-    onSelect?: () => void
+    moneyList?: Money[],
+    money?: Money,
+    rur?: number,
+    usd?: number,
+    eur?: number
+
+    onSelect?: () => void,
+    onChange?: () => void
 }
 
-export interface State {
-    name: string
-}
+export interface State {}
