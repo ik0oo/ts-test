@@ -1,4 +1,2 @@
-export interface Props {
-    addUser: () => void
-}
+export interface Props {}
 export interface State {}

@@ -2,9 +2,10 @@ import * as React from 'react';
 import Aside from './aside/aside';
 import store from '../stores';
 import UserDetails from './forms/user-details';
+import * as UserInterface from './aside/user/user.interface';
 import './layout.css';
 
-const createUser = user => store.dispatch(
+const createUser = (user: UserInterface.Props) : void => store.dispatch(
     Object.assign({type: 'ADD_USER'}, user)
 );
 
@@ -12,9 +13,6 @@ export default function Layout () {
     return (
         <section className="layout">
             <Aside
-                addUser={() => store.dispatch({
-                    type: 'ADD_USER', name: 'some text' + Math.random()
-                })}
             />
             <div className="main">
                 <UserDetails

@@ -35,7 +35,7 @@ export default class Aside extends React.Component<asideInterface.Props, asideIn
                         )
                     }
                 </div>
-                <button onClick={this.props.addUser}>Add user</button>
+                <button>Add user</button>
 
             </aside>
         );

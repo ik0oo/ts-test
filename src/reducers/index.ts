@@ -1,9 +1,9 @@
 import * as userInterface from '../components/aside/user/user.interface';
 import * as userActions from "../actions/user.actions";
 
-declare interface ObjectConstructor {
-    assign(...objects: Object[]): Object;
-}
+//declare interface ObjectConstructor {
+//    assign(...objects: Object[]): Object;
+//}
 
 interface State {
     users: userInterface.Props[]

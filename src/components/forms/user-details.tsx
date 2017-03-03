@@ -5,7 +5,7 @@ import store from '../../stores';
 interface Props extends UserInterface.Props {
     title?: string,
     isEditMode?: boolean,
-    createUser: () => void
+    createUser: (user: UserInterface.Props) => void
 }
 
 interface State extends UserInterface.State {
@@ -14,7 +14,8 @@ interface State extends UserInterface.State {
     email: string,
     rur: number,
     usd: number,
-    eur: number
+    eur: number,
+    [key: string]: any
 }
 
 /*
@@ -26,7 +27,7 @@ export default class UserDetails extends React.Component<Props, State> {
         name: '',
         email: '',
         title: 'New User',
-        isEditMode: false,
+        isEditMode: false
     };
 
     constructor (public props: Props, public state: State) {
@@ -35,7 +36,10 @@ export default class UserDetails extends React.Component<Props, State> {
         this.state = {
             name: this.props.name,
             email: this.props.email,
-            conditions: false
+            conditions: false,
+            rur: 0,
+            usd: 0,
+            eur: 0
         };
     }
 
@@ -43,7 +47,10 @@ export default class UserDetails extends React.Component<Props, State> {
 
         this.props.createUser({
             name: this.state.name,
-            email: this.state.email
+            email: this.state.email,
+            rur: this.state.rur,
+            eur: this.state.eur,
+            usd: this.state.usd
         });
 
 
@@ -64,13 +71,17 @@ export default class UserDetails extends React.Component<Props, State> {
     clean () {
         this.setState({
             name: '',
-            email: ''
+            email: '',
+            conditions: false,
+            rur: 0,
+            usd: 0,
+            eur: 0
         });
     }
 
     onChange (event: React.FormEvent<HTMLInputElement>) : void {
         const target = event.target as HTMLInputElement;
-        const fieldName = target.name;
+        const fieldName: string = target.name;
 
         this.setState({
             [fieldName]: target.type === 'checkbox' ? target.checked : target.value
@@ -123,11 +134,11 @@ export default class UserDetails extends React.Component<Props, State> {
 
                     {transfers.map(item => <div key={item}>
                         <span>{item}</span>
-                        <input name={item} type="number" onChange={this.onChange.bind(this)}/>
+                        <input name={item} type="number" value={this.state[item]} onChange={this.onChange.bind(this)}/>
                     </div>)}
 
                     {!this.props.isEditMode
-                        ? <button onClick={this.createUser.bind(this)}>Save</button>
+                        ? <button disabled={!this.state.conditions} onClick={this.createUser.bind(this)}>Save</button>
                         : <button onClick={this.sendTransfer.bind(this)}>Send</button>
                     }
 

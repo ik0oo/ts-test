@@ -1,7 +1,8 @@
-export interface Money {
-    rur: number,
-    usd: number,
-    eur: number
+export interface History {
+    rur: number[],
+    usd: number[],
+    eur: number[],
+    [key: string]: any
 }
 
 export interface Props {
@@ -9,14 +10,12 @@ export interface Props {
     name?: string,
     email?: string,
     selected?: boolean,
-    moneyList?: Money[],
-    money?: Money,
     rur?: number,
     usd?: number,
-    eur?: number
+    eur?: number,
+    history?: History,
 
     onSelect?: () => void,
-    onChange?: () => void
 }
 
 export interface State {}

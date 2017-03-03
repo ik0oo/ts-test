@@ -11,7 +11,14 @@ export const addUser = (users: userInterface.Props[], action: ActionInterface) =
         id: users.length,
         name: action.name,
         email: action.email,
-        money: action.money,
+        rur: action.rur,
+        usd: action.usd,
+        eur: action.eur,
+        history: {
+            rur: [action.rur],
+            eur: [action.eur],
+            usd: [action.usd]
+        },
         selected: false
     }
 ];
