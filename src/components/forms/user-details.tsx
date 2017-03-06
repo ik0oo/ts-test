@@ -1,9 +1,8 @@
 import * as React from 'react';
-import * as UserInterface from '../aside/user/user.interface';
+import * as UserInterface from '../user/user.interface';
 import store from '../../stores';
 
 interface Props extends UserInterface.Props {
-    title?: string,
     isEditMode?: boolean,
     createUser: (user: UserInterface.Props) => void
 }
@@ -26,13 +25,13 @@ export default class UserDetails extends React.Component<Props, State> {
     static defaultProps = {
         name: '',
         email: '',
-        title: 'New User',
         isEditMode: false
     };
 
     constructor (public props: Props, public state: State) {
         super(props, state);
 
+        console.log(this.props);
         this.state = {
             name: this.props.name,
             email: this.props.email,
@@ -93,7 +92,7 @@ export default class UserDetails extends React.Component<Props, State> {
 
         return (
             <div>
-                <h2>{this.props.title}</h2>
+                <h2>{this.props.isEditMode ? 'Edit User' : 'New User'}</h2>
                 <form>
                     <div>
                         <label>Name</label>

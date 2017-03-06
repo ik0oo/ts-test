@@ -1,4 +1,4 @@
-import * as userInterface from '../components/aside/user/user.interface';
+import * as userInterface from '../components/user/user.interface';
 import * as userActions from "../actions/user.actions";
 
 //declare interface ObjectConstructor {
@@ -10,7 +10,8 @@ interface State {
 }
 
 const initialState = {
-    users: <userInterface.Props[]> []
+    users: <userInterface.Props[]> [],
+    activeUser: {}
 };
 
 const userapp = (state: State = initialState, action: userActions.ActionInterface) => {
@@ -21,9 +22,9 @@ const userapp = (state: State = initialState, action: userActions.ActionInterfac
             });
 
         case 'SELECT_USER':
-            console.log(userActions.selectUser(state.users, action));
+            console.log(action)
             return (<any>Object).assign({}, state, {
-                users: userActions.selectUser(state.users, action)
+                activeUser: userActions.selectUser(state.users, action)
             });
 
         case 'REMOVE_USER':

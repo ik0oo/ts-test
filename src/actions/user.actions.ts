@@ -1,4 +1,4 @@
-import * as userInterface from '../components/aside/user/user.interface';
+import * as userInterface from '../components/user/user.interface';
 
 export interface ActionInterface extends userInterface.Props {
     type: string,
@@ -23,9 +23,8 @@ export const addUser = (users: userInterface.Props[], action: ActionInterface) =
     }
 ];
 
-export const selectUser = (users: userInterface.Props[], action: ActionInterface) => users.map((user: userInterface.Props) => {
-    user.selected = user.id === action.id;
-    return user;
-});
+export const selectUser = (users: userInterface.Props[], action: ActionInterface) => users.filter((user: userInterface.Props) => {
+    return user.id === action.id;
+})[0];
 
 export const removeUser = (users: userInterface.Props[], action: ActionInterface) => users.filter((user: userInterface.Props) => user.id !== action.id);

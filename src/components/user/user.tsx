@@ -1,5 +1,6 @@
 //libs
 import * as React from 'react';
+import { Link } from 'react-router';
 
 //interfaces
 import * as userInterface from './user.interface';
@@ -16,11 +17,12 @@ export default class User extends React.Component<userInterface.Props, userInter
 
     render () {
         return (
-            <div className={`user${this.props.selected ? ' user--selected' : ''}`} onClick={this.props.onSelect}>
+            <div className={`user${this.props.selected ? ' user--selected' : ''}`}>
                 <figure>
                     <img className="user__profile-image" src={imageUrl} alt="user profile image"/>
                 </figure>
                 <span className="user__profile-name">{this.props.name}</span>
+                <Link to={'/' + this.props.id}>goto</Link>
             </div>
         );
     }
